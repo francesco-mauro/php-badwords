@@ -1,5 +1,13 @@
 <?php
 // GET
+// var_dump($_GET);
+// var_dump(empty($_GET["badword"]));
+
+if (empty($_GET['paragraph']) || empty($_GET['badword'])) {
+    echo "Errore, dati mancanti";
+    die();
+}
+
 $paragraph = $_GET['paragraph'];
 $badword = $_GET['badword'];
 
@@ -15,5 +23,3 @@ $censored_paragraph = str_ireplace($badword, '***', $paragraph);
 echo "<h3>Paragrafo censurato:</h3>";
 echo "<p>$censored_paragraph</p>";
 echo "<p>Lunghezza: " . strlen($censored_paragraph) . " caratteri</p>";
-?>
-
